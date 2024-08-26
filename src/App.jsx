@@ -1,39 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Public from './Public'
+import Private from './Private'
 
-const App = () => {
-   
-    const [counter, setCounter] = useState(0);
- 
-    const handleClick1 = () => {
-       
-        setCounter(counter + 1);
-    };
-    const handleClick2 = () => {
-  
-        setCounter(counter - 1);
-    };
+function App() {
+    
   return (
-        <div className='app'>
-            <h2>Counter App</h2>
-            <div className='count'>
-                {counter}
-            </div>
-            <div className='green'>
-                <button onClick={handleClick1}>
-                    Increment
-                </button>
-                </div>
-                <div className='red'>
-                <button onClick={handleClick2}>
-                    Decrement
-                </button>
-                </div>
-            
-        </div>
-    );
-};
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/public' element={<Public/>}/>
+      <Route path='/private' element={<Private/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
+  )
+}
 
-export default App
+export default App;
